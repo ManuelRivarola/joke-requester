@@ -4,8 +4,14 @@ const prompt = require('prompt');
 
 const main = async () => {
   // Get search term
+  var search_term;
   prompt.start();
-  const search_term = (await prompt.get('term')).term;
+  try {
+    const search_term = (await prompt.get('term')).term;
+  } catch (error) {
+    console.error('' + error);
+    search_term = 'Default';
+  }
   // Build url and options
   const url = new URL(`/search?term=${search_term}`,'https://icanhazdadjoke.com');
   const options = {
