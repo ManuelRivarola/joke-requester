@@ -7,7 +7,7 @@ const main = async () => {
   var search_term;
   prompt.start();
   try {
-    const search_term = (await prompt.get('term')).term;
+    search_term = (await prompt.get('term')).term;
   } catch (error) {
     console.error('' + error);
     search_term = 'Default';
